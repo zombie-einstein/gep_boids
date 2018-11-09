@@ -59,11 +59,7 @@ class Flock:
             time_text.set_text('t {:3}'.format(i))
             return [line] + [time_text]
 
-        anim = animation.FuncAnimation(fig, animate, frames=len(self.steps), interval=80, blit=True)
-        if path:
-            anim.save(path, dpi=80, writer='imagemagick')
-        else:
-            plt.show()
+        return animation.FuncAnimation(fig, animate, frames=len(self.steps), interval=80, blit=True)
 
     def breed(self, fitness):
         self.dv_genes = self.gep.breed(self.dv_genes, fitness)
